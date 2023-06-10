@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-3 mb-3">
+  <form action="/add_room/{{ house.id }}" method="post" enctype="multipart/form-data">
+    <h3>{{ house.house_name }}</h3>
+   <div class="form-group">
+      <label for="room-type">Room Types:</label>
+      <select class="form-control" id="room-type" name="room-type">
+        <option value="bed-sitter" selected>Bed Sitter</option>
+        <option value="one-bedroom">One Bedroom</option>
+        <option value="two-bedroom">Two Bedroom</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number"
+             class="form-control"
+             id="price"
+             name="room-price"
+             placeholder="Enter the rent price"
+             required>
+    </div>
+    <div class="form-group">
+      <label for="Vacancies">Number of Vacancies</label>
+      <input type="number"
+             class="form-control"
+             id="vacancies"
+             name="room-vacancies"
+             placeholder="Enter number of vacancies"
+             required>
+    </div>
+    <div class="form-group">
+      <label for="images">Image</label>
+      <input type="file"
+             class="form-control-file"
+             id="images"
+             name="room-images"
+             multiple
+             required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+{% endblock %}

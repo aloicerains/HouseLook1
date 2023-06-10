@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+  {% block content %}
+    <div class="container">
+      <div class="row">
+        <h1 class="col-sm-8">List of Houses</h1>
+        <a href="{{ url_for('logout') }}" class="btn btn-primary mr-md-2">Logout</a>
+      </div>
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th>House Name</th>
+            <th>Location</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for house in houses %}
+          <tr>
+            <td>{{ house.house_name }}</td>
+            <td>{{ house.house_location }}</td>
+            <td>
+              <a href="{{ url_for('house_update', house_id=house.id) }}" class="btn btn-primary mr-md-2">Update</a>
+              <a href="{{ url_for('room_view', house_id=house.id) }}" class="btn btn-secondary mr-md-2">Room</a>
+              <a href="{{ url_for('house_delete', house_id=house.id) }}" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endblock content %}

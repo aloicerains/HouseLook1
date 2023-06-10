@@ -1,0 +1,14 @@
+.custom-img {
+  height: 250px
+}
+/*.carousel-size {
+    width: 400px;
+    height: 500px;"
+}*/
+.flash-messages {
+    list-style-type: none;
+}
+
+.flash-message {
+    color: red;
+}

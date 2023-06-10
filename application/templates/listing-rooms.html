@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mb-3">
+  {% for room in rooms %}
+    <h3>{{ room.room_type }}</h3>
+    <div id="carousel-{{ loop.index }}" class="carousel slide carousel-size rounded" data-ride="carousel">
+      <ol class="carousel-indicators">
+        {% for image in room.room_images %}
+          <li data-target="#carousel-{{ loop.index }} {% if loop.index == 1 %}class='active'{% endif %}" data-slide-to="{{ loop.index0 }}"></li>
+        {% endfor %}
+      </ol>
+      <div class="carousel-inner">
+        {% for image in room.room_images %}
+          <div class="carousel-item {% if loop.first %}active{% endif %} custom-img">
+            <img src="{{ image }}" alt="{{ loop.index }}" class="img-fluid custom-img">
+          </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#carousel-{{ loop.index }}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-{{ loop.index }}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <p class="display-5">Rent at ksh {{ room.room_price }}</p>
+  {% endfor %}
+</div>
+{% endblock content %}

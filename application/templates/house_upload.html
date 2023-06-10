@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-3 mb-3">
+  <form action="/add_house" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">House Name:</label>
+      <input type="text"
+             class="form-control"
+             id="name"
+             name="name"
+             placeholder="Enter name of the house"
+             required>
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text"
+             class="form-control"
+             id="location"
+             name="location"
+             placeholder="Enter location"
+             required>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file"
+             class="form-control-file"
+             id="image" name="image"
+             required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+{% endblock %}

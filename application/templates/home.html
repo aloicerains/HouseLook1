@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Search bar section -->
+  <div class="jumbotron">
+    <h1 class="display-4">Find Your Dream Rental House</h1>
+    <p class="lead">Enter your preferred location to start your rental search.</p>
+    <form action="/search" method="post">
+      <div class="form-row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Try your location e.g Juja" name="location">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- House Listings -->
+  <div class="container mt-3">
+    <h1>House Listings</h1>
+    <div class="row">
+      {% for house in houses %}
+      <div class="col-md-4 mb-3">
+        <div class="card">
+           <a href="{{ url_for('view_room', house_id=house.id) }}">
+          <img src="{{ house.house_image }}" class="card-img-top img-fluid custom-img"
+               alt="{{ house.house_name }}">
+           </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ house.house_name }}</h5>
+            {% for room in house.house_rooms %}
+            <p class="card-text">{{ room.room_type }}s - ksh {{ room.room_price }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

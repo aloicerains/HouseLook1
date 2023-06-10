@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/styles.css">
+  <title>HouseLook</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">HouseLook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item {% if active == 'home' %}active{% endif %}">
+          <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+        </li>
+        <li class="nav-item {% if active == 'about' %}active{% endif %}">
+          <a class="nav-link" href="{{ url_for('about') }}">About</a>
+        </li>
+        <li class="nav-item {% if active == 'contact' %}active{% endif %}">
+          <a class="nav-link" href="https://aloicerains.github.io/">Contact</a>
+        </li>
+        <!--li class="nav-item {% if active == 'admin' %}active{% endif %}">
+          <a class="nav-link" href="{{ url_for('admin') }}">Admin</a>
+        </li-->
+      </ul>
+    </div>
+  </nav>
+  {% block content %}
+   <!-- Content -->
+  <div class="container mt-3">
+    <h1>House Search</h1>
+    <form>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" id="location">
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" id="price">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+{% endblock %}
+  <footer class="bg-dark text-light">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>HouseLook</h4>
+          <p>Finds you your next rental house</p>
+        </div>
+        <div class="col-md-4">
+          <h4>Useful Links</h4>
+          <ul class="list-unstyled">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About Us</a></li>
+            <li><a href="https://aloicerains.github.io/">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4>Contact Us</h4>
+          <ul class="list-unstyled">
+            <li>123 Main St.</li>
+            <li>City, State, Zip</li>
+            <li>Phone: (555) 555-5555</li>
+            <li>Email: info@houselook.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p>&copy; {{ current_year() }} HouseLook. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Import jQuery, Popper.js, and Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
